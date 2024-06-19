@@ -1,7 +1,9 @@
 package dao;
 
-public class DaoFuncionario extends Dao<DaoFuncionario> {
+import model.Funcionario;
+
+public class DaoFuncionario extends Dao<Funcionario> {
     public DaoFuncionario() {
-        super(DaoFuncionario.class);
+        super(Funcionario.class);
     }
 }
