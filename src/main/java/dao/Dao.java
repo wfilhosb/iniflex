@@ -74,4 +74,23 @@ public class Dao<T> {
 		}
 		return result;
 	}
+
+	public void deleteById(int id) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			T entity = em.find(entityClass, id);
+			if (entity != null) {
+				em.remove(entity);
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
 }
