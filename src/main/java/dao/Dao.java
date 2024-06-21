@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Dao<T> {
-	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("iniflex");
+	protected static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("iniflex");
 	private final Class<T> entityClass;
 
 	public Dao(Class<T> entityClass) {
